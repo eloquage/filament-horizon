@@ -29,10 +29,15 @@ class Horizon extends Cluster
     public static function canAccess(): bool
     {
         // Allow access in local environment, otherwise check gate
-        if (app()->environment('local')) {
+        // Check config directly to allow test overrides
+        $env = config('app.env', app()->environment());
+        if ($env === 'local') {
             return true;
         }
 
-        return Gate::allows('viewHorizon');
+        // Gate::allows() requires an authenticated user, so use forUser(null) for testing
+        $user = auth()->user();
+
+        return Gate::forUser($user)->allows('viewHorizon');
     }
 }

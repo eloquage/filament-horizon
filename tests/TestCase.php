@@ -16,6 +16,8 @@ use Filament\Tables\TablesServiceProvider;
 use Filament\Widgets\WidgetsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\MessageBag;
+use Illuminate\Support\ViewErrorBag;
 use Laravel\Horizon\HorizonServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Miguelenes\FilamentHorizon\FilamentHorizonPlugin;
@@ -33,8 +35,15 @@ class TestCase extends Orchestra
             fn (string $modelName) => 'Miguelenes\\FilamentHorizon\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
 
-        // Define the viewHorizon gate for testing
-        Gate::define('viewHorizon', fn () => true);
+        // Define the viewHorizon gate for testing (accepts user parameter for proper authorization checks)
+        Gate::define('viewHorizon', fn ($user = null) => true);
+
+        // Initialize view error bag for Livewire testing
+        // Livewire expects 'errors' to be in shared view data (see HandlesValidation.php line 45)
+        // Ensure it has a default MessageBag to prevent null issues
+        $errorBag = new ViewErrorBag;
+        $errorBag->put('default', new MessageBag);
+        view()->share('errors', $errorBag);
     }
 
     protected function getPackageProviders($app)
