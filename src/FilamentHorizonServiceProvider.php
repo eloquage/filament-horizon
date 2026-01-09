@@ -2,15 +2,21 @@
 
 namespace Miguelenes\FilamentHorizon;
 
-use Filament\Support\Assets\AlpineComponent;
-use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
+use Illuminate\Bus\BatchRepository;
 use Illuminate\Filesystem\Filesystem;
+use Laravel\Horizon\Contracts\JobRepository;
+use Laravel\Horizon\Contracts\MasterSupervisorRepository;
+use Laravel\Horizon\Contracts\MetricsRepository;
+use Laravel\Horizon\Contracts\SupervisorRepository;
+use Laravel\Horizon\Contracts\TagRepository;
+use Laravel\Horizon\Contracts\WorkloadRepository;
 use Livewire\Features\SupportTesting\Testable;
 use Miguelenes\FilamentHorizon\Commands\FilamentHorizonCommand;
+use Miguelenes\FilamentHorizon\Services\HorizonApi;
 use Miguelenes\FilamentHorizon\Testing\TestsFilamentHorizon;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
@@ -33,21 +39,8 @@ class FilamentHorizonServiceProvider extends PackageServiceProvider
             ->hasCommands($this->getCommands())
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
-                    ->publishConfigFile()
-                    ->publishMigrations()
-                    ->askToRunMigrations()
                     ->askToStarRepoOnGitHub('miguelenes/filament-horizon');
             });
-
-        $configFileName = $package->shortName();
-
-        if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
-            $package->hasConfigFile();
-        }
-
-        if (file_exists($package->basePath('/../database/migrations'))) {
-            $package->hasMigrations($this->getMigrations());
-        }
 
         if (file_exists($package->basePath('/../resources/lang'))) {
             $package->hasTranslations();
@@ -58,8 +51,24 @@ class FilamentHorizonServiceProvider extends PackageServiceProvider
         }
     }
 
-    public function packageRegistered(): void {}
+    public function packageRegistered(): void
+    {
+        $this->app->singleton(HorizonApi::class, function ($app) {
+            return new HorizonApi(
+                $app->make(JobRepository::class),
+                $app->make(MetricsRepository::class),
+                $app->make(TagRepository::class),
+                $app->make(WorkloadRepository::class),
+                $app->make(SupervisorRepository::class),
+                $app->make(MasterSupervisorRepository::class),
+                $app->make(BatchRepository::class),
+            );
+        });
+    }
 
+    /**
+     * @throws \ReflectionException
+     */
     public function packageBooted(): void
     {
         // Asset Registration
@@ -95,12 +104,11 @@ class FilamentHorizonServiceProvider extends PackageServiceProvider
     }
 
     /**
-     * @return array<Asset>
+     * @return array<\Filament\Support\Assets\Asset>
      */
     protected function getAssets(): array
     {
         return [
-            // AlpineComponent::make('filament-horizon', __DIR__ . '/../resources/dist/components/filament-horizon.js'),
             Css::make('filament-horizon-styles', __DIR__ . '/../resources/dist/filament-horizon.css'),
             Js::make('filament-horizon-scripts', __DIR__ . '/../resources/dist/filament-horizon.js'),
         ];
@@ -138,15 +146,5 @@ class FilamentHorizonServiceProvider extends PackageServiceProvider
     protected function getScriptData(): array
     {
         return [];
-    }
-
-    /**
-     * @return array<string>
-     */
-    protected function getMigrations(): array
-    {
-        return [
-            'create_filament-horizon_table',
-        ];
     }
 }

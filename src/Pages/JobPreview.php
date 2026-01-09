@@ -1,0 +1,64 @@
+<?php
+
+namespace Miguelenes\FilamentHorizon\Pages;
+
+use BackedEnum;
+use Carbon\Carbon;
+use Filament\Pages\Page;
+use Illuminate\Database\Eloquent\Model;
+use Miguelenes\FilamentHorizon\Clusters\Horizon;
+use Miguelenes\FilamentHorizon\Concerns\AuthorizesHorizonAccess;
+use Miguelenes\FilamentHorizon\Services\HorizonApi;
+
+class JobPreview extends Page
+{
+    use AuthorizesHorizonAccess;
+
+    protected string $view = 'filament-horizon::pages.job-preview';
+
+    protected static ?string $cluster = Horizon::class;
+
+    protected static BackedEnum | string | null $navigationIcon = 'heroicon-o-document-text';
+
+    protected static bool $shouldRegisterNavigation = false;
+
+    public string $jobId;
+
+    public function mount(string $jobId): void
+    {
+        $this->jobId = $jobId;
+    }
+
+    public function getTitle(): string
+    {
+        return 'Job Details';
+    }
+
+    public static function getUrl(array $parameters = [], bool $isAbsolute = true, ?string $panel = null, ?Model $tenant = null): string
+    {
+        return parent::getUrl($parameters, $isAbsolute, $panel, $tenant);
+    }
+
+    public function getJob(): ?object
+    {
+        $api = app(HorizonApi::class);
+
+        return $api->getJob($this->jobId);
+    }
+
+    protected function getJobBaseName(string $name): string
+    {
+        $parts = explode('\\', $name);
+
+        return end($parts);
+    }
+
+    protected function formatTimestamp(?int $timestamp): string
+    {
+        if ($timestamp === null) {
+            return '-';
+        }
+
+        return Carbon::createFromTimestamp($timestamp)->format('Y-m-d H:i:s');
+    }
+}

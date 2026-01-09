@@ -1,10 +1,29 @@
-const preset = require('./vendor/filament/filament/tailwind.config.preset')
+import colors from 'tailwindcss/colors'
+import forms from '@tailwindcss/forms'
+import typography from '@tailwindcss/typography'
 
-module.exports = {
-    presets: [preset],
+/** @type {import('tailwindcss').Config} */
+export default {
     content: [
-        './app/Filament/**/*.php',
-        './resources/views/filament/**/*.blade.php',
-        './vendor/filament/**/*.blade.php',
+        './resources/views/**/*.blade.php',
+        './src/**/*.php',
     ],
+    darkMode: 'class',
+    theme: {
+        extend: {
+            colors: {
+                danger: colors.red,
+                gray: colors.zinc,
+                info: colors.blue,
+                primary: colors.amber,
+                success: colors.green,
+                warning: colors.yellow,
+            },
+        },
+    },
+    plugins: [forms, typography],
+    // Don't conflict with Filament's classes
+    corePlugins: {
+        preflight: false,
+    },
 }

@@ -9,11 +9,16 @@ use Filament\FilamentServiceProvider;
 use Filament\Forms\FormsServiceProvider;
 use Filament\Infolists\InfolistsServiceProvider;
 use Filament\Notifications\NotificationsServiceProvider;
+use Filament\Panel;
+use Filament\PanelProvider;
 use Filament\Support\SupportServiceProvider;
 use Filament\Tables\TablesServiceProvider;
 use Filament\Widgets\WidgetsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Gate;
+use Laravel\Horizon\HorizonServiceProvider;
 use Livewire\LivewireServiceProvider;
+use Miguelenes\FilamentHorizon\FilamentHorizonPlugin;
 use Miguelenes\FilamentHorizon\FilamentHorizonServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
@@ -27,6 +32,9 @@ class TestCase extends Orchestra
         Factory::guessFactoryNamesUsing(
             fn (string $modelName) => 'Miguelenes\\FilamentHorizon\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
+
+        // Define the viewHorizon gate for testing
+        Gate::define('viewHorizon', fn () => true);
     }
 
     protected function getPackageProviders($app)
@@ -44,17 +52,27 @@ class TestCase extends Orchestra
             SupportServiceProvider::class,
             TablesServiceProvider::class,
             WidgetsServiceProvider::class,
+            HorizonServiceProvider::class,
             FilamentHorizonServiceProvider::class,
+            TestPanelProvider::class,
         ];
     }
 
     public function getEnvironmentSetUp($app)
     {
         config()->set('database.default', 'testing');
+        config()->set('horizon.use', 'default');
+        config()->set('queue.default', 'redis');
+    }
+}
 
-        /*
-        $migration = include __DIR__.'/../database/migrations/create_filament-horizon_table.php.stub';
-        $migration->up();
-        */
+class TestPanelProvider extends PanelProvider
+{
+    public function panel(Panel $panel): Panel
+    {
+        return $panel
+            ->id('admin')
+            ->path('admin')
+            ->plugin(FilamentHorizonPlugin::make());
     }
 }
