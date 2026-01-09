@@ -2,16 +2,16 @@
 
 use Illuminate\Support\Facades\Gate;
 use Livewire\Livewire;
-use Miguelenes\FilamentHorizon\Pages\Batches;
-use Miguelenes\FilamentHorizon\Pages\Dashboard;
-use Miguelenes\FilamentHorizon\Pages\FailedJobs;
-use Miguelenes\FilamentHorizon\Pages\Metrics;
-use Miguelenes\FilamentHorizon\Pages\Monitoring;
-use Miguelenes\FilamentHorizon\Pages\RecentJobs;
-use Miguelenes\FilamentHorizon\Services\HorizonApi;
-use Miguelenes\FilamentHorizon\Widgets\StatsOverview;
-use Miguelenes\FilamentHorizon\Widgets\WorkersWidget;
-use Miguelenes\FilamentHorizon\Widgets\WorkloadWidget;
+use Eloquage\FilamentHorizon\Pages\Batches;
+use Eloquage\FilamentHorizon\Pages\Dashboard;
+use Eloquage\FilamentHorizon\Pages\FailedJobs;
+use Eloquage\FilamentHorizon\Pages\Metrics;
+use Eloquage\FilamentHorizon\Pages\Monitoring;
+use Eloquage\FilamentHorizon\Pages\RecentJobs;
+use Eloquage\FilamentHorizon\Services\HorizonApi;
+use Eloquage\FilamentHorizon\Widgets\StatsOverview;
+use Eloquage\FilamentHorizon\Widgets\WorkersWidget;
+use Eloquage\FilamentHorizon\Widgets\WorkloadWidget;
 
 beforeEach(function () {
     $this->api = Mockery::mock(HorizonApi::class);

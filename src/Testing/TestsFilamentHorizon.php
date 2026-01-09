@@ -1,6 +1,6 @@
 <?php
 
-namespace Miguelenes\FilamentHorizon\Testing;
+namespace Eloquage\FilamentHorizon\Testing;
 
 use Livewire\Features\SupportTesting\Testable;
 

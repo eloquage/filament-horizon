@@ -1,6 +1,6 @@
 <?php
 
-namespace Miguelenes\FilamentHorizon\Commands;
+namespace Eloquage\FilamentHorizon\Commands;
 
 use Illuminate\Console\Command;
 

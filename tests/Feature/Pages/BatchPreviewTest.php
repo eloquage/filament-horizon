@@ -4,8 +4,8 @@ use Filament\Notifications\Notification;
 use Filament\Support\Enums\Width;
 use Illuminate\Support\Facades\Bus;
 use Livewire\Livewire;
-use Miguelenes\FilamentHorizon\Pages\BatchPreview;
-use Miguelenes\FilamentHorizon\Services\HorizonApi;
+use Eloquage\FilamentHorizon\Pages\BatchPreview;
+use Eloquage\FilamentHorizon\Services\HorizonApi;
 
 beforeEach(function () {
     $this->api = Mockery::mock(HorizonApi::class);

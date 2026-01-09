@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Artisan;
-use Miguelenes\FilamentHorizon\Commands\FilamentHorizonCommand;
+use Eloquage\FilamentHorizon\Commands\FilamentHorizonCommand;
 
 it('has correct command signature', function () {
     $command = new FilamentHorizonCommand;

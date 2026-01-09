@@ -1,15 +1,15 @@
 {
-    "name": "miguelenes/filament-horizon",
+    "name": "eloquage/filament-horizon",
     "description": "This is my package filament-horizon",
     "keywords": [
-        "miguelenes",
         "laravel",
+        "filament",
         "filament-horizon"
     ],
-    "homepage": "https://github.com/miguelenes/filament-horizon",
+    "homepage": "https://github.com/eloquage/filament-horizon",
     "support": {
-        "issues": "https://github.com/miguelenes/filament-horizon/issues",
-        "source": "https://github.com/miguelenes/filament-horizon"
+        "issues": "https://github.com/eloquage/filament-horizon/issues",
+        "source": "https://github.com/eloquage/filament-horizon"
     },
     "license": "MIT",
     "authors": [
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Miguelenes\\FilamentHorizon\\": "src/",
-            "Miguelenes\\FilamentHorizon\\Database\\Factories\\": "database/factories/"
+            "Eloquage\\FilamentHorizon\\": "src/",
+            "Eloquage\\FilamentHorizon\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Miguelenes\\FilamentHorizon\\Tests\\": "tests/"
+            "Eloquage\\FilamentHorizon\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -61,10 +61,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Miguelenes\\FilamentHorizon\\FilamentHorizonServiceProvider"
+                "Eloquage\\FilamentHorizon\\FilamentHorizonServiceProvider"
             ],
             "aliases": {
-                "FilamentHorizon": "Miguelenes\\FilamentHorizon\\Facades\\FilamentHorizon"
+                "FilamentHorizon": "Eloquage\\FilamentHorizon\\Facades\\FilamentHorizon"
             }
         }
     },

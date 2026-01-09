@@ -35,7 +35,7 @@
                             @foreach($tags as $item)
                                 <tr>
                                     <td>
-                                        <a href="{{ \Miguelenes\FilamentHorizon\Pages\MonitoringTag::getUrl(['tag' => $item['tag']]) }}" class="fi-horizon-link">
+                                        <a href="{{ \Eloquage\FilamentHorizon\Pages\MonitoringTag::getUrl(['tag' => $item['tag']]) }}" class="fi-horizon-link">
                                             {{ $item['tag'] }}
                                         </a>
                                     </td>

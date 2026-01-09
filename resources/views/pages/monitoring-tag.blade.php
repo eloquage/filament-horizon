@@ -46,8 +46,8 @@
                             @foreach($jobs as $job)
                                 @php
                                     $previewPage = $type === 'failed'
-                                        ? \Miguelenes\FilamentHorizon\Pages\FailedJobPreview::class
-                                        : \Miguelenes\FilamentHorizon\Pages\JobPreview::class;
+                                        ? \Eloquage\FilamentHorizon\Pages\FailedJobPreview::class
+                                        : \Eloquage\FilamentHorizon\Pages\JobPreview::class;
                                 @endphp
                                 <tr>
                                     <td>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Miguelenes\FilamentHorizon\Pages;
+namespace Eloquage\FilamentHorizon\Pages;
 
 use BackedEnum;
 use Filament\Forms\Components\TextInput;
@@ -9,9 +9,9 @@ use Filament\Pages\Page;
 use Filament\Schemas\Schema;
 use Filament\Support\Enums\Width;
 use Illuminate\Support\Collection;
-use Miguelenes\FilamentHorizon\Clusters\Horizon;
-use Miguelenes\FilamentHorizon\Concerns\AuthorizesHorizonAccess;
-use Miguelenes\FilamentHorizon\Services\HorizonApi;
+use Eloquage\FilamentHorizon\Clusters\Horizon;
+use Eloquage\FilamentHorizon\Concerns\AuthorizesHorizonAccess;
+use Eloquage\FilamentHorizon\Services\HorizonApi;
 
 class Monitoring extends Page
 {

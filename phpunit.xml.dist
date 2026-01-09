@@ -16,7 +16,7 @@
     backupStaticProperties="false"
 >
     <testsuites>
-        <testsuite name="Miguelenes Test Suite">
+        <testsuite name="Filament Horizon Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

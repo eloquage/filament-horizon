@@ -35,7 +35,7 @@
                                 <tr>
                                     <td>
                                         <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                            <a href="{{ \Miguelenes\FilamentHorizon\Pages\FailedJobPreview::getUrl(['jobId' => $job->id]) }}" class="fi-horizon-link-danger" style="font-weight: 500; text-decoration: none;">
+                                            <a href="{{ \Eloquage\FilamentHorizon\Pages\FailedJobPreview::getUrl(['jobId' => $job->id]) }}" class="fi-horizon-link-danger" style="font-weight: 500; text-decoration: none;">
                                                 {{ $this->getJobBaseName($job->name ?? $job->payload->displayName ?? 'Unknown') }}
                                             </a>
                                             @if($this->wasRetried($job))

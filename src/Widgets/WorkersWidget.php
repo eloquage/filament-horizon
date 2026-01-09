@@ -1,9 +1,9 @@
 <?php
 
-namespace Miguelenes\FilamentHorizon\Widgets;
+namespace Eloquage\FilamentHorizon\Widgets;
 
 use Filament\Widgets\Widget;
-use Miguelenes\FilamentHorizon\Services\HorizonApi;
+use Eloquage\FilamentHorizon\Services\HorizonApi;
 
 class WorkersWidget extends Widget
 {

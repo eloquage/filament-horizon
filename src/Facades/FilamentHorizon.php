@@ -1,16 +1,16 @@
 <?php
 
-namespace Miguelenes\FilamentHorizon\Facades;
+namespace Eloquage\FilamentHorizon\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Miguelenes\FilamentHorizon\FilamentHorizon
+ * @see \Eloquage\FilamentHorizon\FilamentHorizon
  */
 class FilamentHorizon extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \Miguelenes\FilamentHorizon\FilamentHorizon::class;
+        return \Eloquage\FilamentHorizon\FilamentHorizon::class;
     }
 }

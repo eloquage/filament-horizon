@@ -1,6 +1,6 @@
 <?php
 
-namespace Miguelenes\FilamentHorizon\Concerns;
+namespace Eloquage\FilamentHorizon\Concerns;
 
 use Illuminate\Support\Facades\Gate;
 

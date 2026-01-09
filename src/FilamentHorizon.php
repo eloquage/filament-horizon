@@ -1,5 +1,5 @@
 <?php
 
-namespace Miguelenes\FilamentHorizon;
+namespace Eloquage\FilamentHorizon;
 
 class FilamentHorizon {}

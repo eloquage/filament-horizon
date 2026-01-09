@@ -7,7 +7,7 @@ use Laravel\Horizon\Contracts\MetricsRepository;
 use Laravel\Horizon\Contracts\SupervisorRepository;
 use Laravel\Horizon\Contracts\TagRepository;
 use Laravel\Horizon\Contracts\WorkloadRepository;
-use Miguelenes\FilamentHorizon\Services\HorizonApi;
+use Eloquage\FilamentHorizon\Services\HorizonApi;
 
 it('can be instantiated', function () {
     $mockJobRepository = Mockery::mock(JobRepository::class);

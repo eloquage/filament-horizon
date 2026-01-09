@@ -1,10 +1,10 @@
 <?php
 
-namespace Miguelenes\FilamentHorizon\Widgets;
+namespace Eloquage\FilamentHorizon\Widgets;
 
 use Carbon\CarbonInterval;
 use Filament\Widgets\Widget;
-use Miguelenes\FilamentHorizon\Services\HorizonApi;
+use Eloquage\FilamentHorizon\Services\HorizonApi;
 
 class WorkloadWidget extends Widget
 {

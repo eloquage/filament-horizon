@@ -1,6 +1,6 @@
 <?php
 
-// config for Miguelenes/FilamentHorizon
+// config for Eloquage/FilamentHorizon
 return [
 
 ];

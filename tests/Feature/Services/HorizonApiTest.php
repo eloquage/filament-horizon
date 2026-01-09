@@ -15,7 +15,7 @@ use Laravel\Horizon\Jobs\MonitorTag;
 use Laravel\Horizon\Jobs\RetryFailedJob;
 use Laravel\Horizon\Jobs\StopMonitoringTag;
 use Laravel\Horizon\WaitTimeCalculator;
-use Miguelenes\FilamentHorizon\Services\HorizonApi;
+use Eloquage\FilamentHorizon\Services\HorizonApi;
 
 function createMockApi(): HorizonApi
 {

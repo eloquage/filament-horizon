@@ -1,11 +1,11 @@
 <?php
 
-namespace Miguelenes\FilamentHorizon\Widgets;
+namespace Eloquage\FilamentHorizon\Widgets;
 
 use Carbon\CarbonInterval;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
-use Miguelenes\FilamentHorizon\Services\HorizonApi;
+use Eloquage\FilamentHorizon\Services\HorizonApi;
 
 class StatsOverview extends BaseWidget
 {

@@ -1,11 +1,11 @@
 <x-filament-panels::page>
     @php
-        $api = app(\Miguelenes\FilamentHorizon\Services\HorizonApi::class);
+        $api = app(\Eloquage\FilamentHorizon\Services\HorizonApi::class);
         $stats = $api->getStats();
         $status = $stats['status'];
         $recentPeriod = \Carbon\CarbonInterval::minutes($stats['periods']['recentJobs'] ?? 60)->cascade()->forHumans(['short' => true]);
         $failedPeriod = \Carbon\CarbonInterval::minutes($stats['periods']['failedJobs'] ?? 10080)->cascade()->forHumans(['short' => true]);
-        
+
         $maxWait = '-';
         $maxWaitQueue = null;
         if ($stats['wait']->isNotEmpty()) {
@@ -16,7 +16,7 @@
                 $maxWaitQueue = explode(':', $maxWaitQueue)[1] ?? $maxWaitQueue;
             }
         }
-        
+
         $workload = collect($api->getWorkload());
         $masters = collect($api->getMasters());
     @endphp

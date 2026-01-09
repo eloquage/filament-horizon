@@ -2,8 +2,8 @@
 
 use Filament\Support\Enums\Width;
 use Livewire\Livewire;
-use Miguelenes\FilamentHorizon\Pages\JobPreview;
-use Miguelenes\FilamentHorizon\Services\HorizonApi;
+use Eloquage\FilamentHorizon\Pages\JobPreview;
+use Eloquage\FilamentHorizon\Services\HorizonApi;
 
 beforeEach(function () {
     $this->api = Mockery::mock(HorizonApi::class);

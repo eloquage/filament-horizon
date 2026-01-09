@@ -1,7 +1,7 @@
 <?php
 
-use Miguelenes\FilamentHorizon\FilamentHorizonServiceProvider;
-use Miguelenes\FilamentHorizon\Services\HorizonApi;
+use Eloquage\FilamentHorizon\FilamentHorizonServiceProvider;
+use Eloquage\FilamentHorizon\Services\HorizonApi;
 
 it('registers package correctly', function () {
     $provider = new FilamentHorizonServiceProvider(app());
@@ -70,7 +70,7 @@ it('has correct asset package name', function () {
     $method = $reflection->getMethod('getAssetPackageName');
     $method->setAccessible(true);
 
-    expect($method->invoke($provider))->toBe('miguelenes/filament-horizon');
+    expect($method->invoke($provider))->toBe('eloquage/filament-horizon');
 });
 
 it('returns correct assets', function () {
@@ -96,7 +96,7 @@ it('returns correct commands', function () {
     $commands = $method->invoke($provider);
 
     expect($commands)->toBeArray();
-    expect($commands)->toContain(\Miguelenes\FilamentHorizon\Commands\FilamentHorizonCommand::class);
+    expect($commands)->toContain(\Eloquage\FilamentHorizon\Commands\FilamentHorizonCommand::class);
 });
 
 it('returns empty icons array', function () {

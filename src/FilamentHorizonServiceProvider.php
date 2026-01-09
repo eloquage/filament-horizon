@@ -1,6 +1,6 @@
 <?php
 
-namespace Miguelenes\FilamentHorizon;
+namespace Eloquage\FilamentHorizon;
 
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
@@ -15,9 +15,9 @@ use Laravel\Horizon\Contracts\SupervisorRepository;
 use Laravel\Horizon\Contracts\TagRepository;
 use Laravel\Horizon\Contracts\WorkloadRepository;
 use Livewire\Features\SupportTesting\Testable;
-use Miguelenes\FilamentHorizon\Commands\FilamentHorizonCommand;
-use Miguelenes\FilamentHorizon\Services\HorizonApi;
-use Miguelenes\FilamentHorizon\Testing\TestsFilamentHorizon;
+use Eloquage\FilamentHorizon\Commands\FilamentHorizonCommand;
+use Eloquage\FilamentHorizon\Services\HorizonApi;
+use Eloquage\FilamentHorizon\Testing\TestsFilamentHorizon;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -39,7 +39,7 @@ class FilamentHorizonServiceProvider extends PackageServiceProvider
             ->hasCommands($this->getCommands())
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
-                    ->askToStarRepoOnGitHub('miguelenes/filament-horizon');
+                    ->askToStarRepoOnGitHub('eloquage/filament-horizon');
             });
 
         if (file_exists($package->basePath('/../resources/lang'))) {
@@ -100,7 +100,7 @@ class FilamentHorizonServiceProvider extends PackageServiceProvider
 
     protected function getAssetPackageName(): ?string
     {
-        return 'miguelenes/filament-horizon';
+        return 'eloquage/filament-horizon';
     }
 
     /**

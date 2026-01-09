@@ -1,6 +1,6 @@
 <?php
 
-namespace Miguelenes\FilamentHorizon\Services;
+namespace Eloquage\FilamentHorizon\Services;
 
 use Illuminate\Bus\BatchRepository;
 use Illuminate\Database\QueryException;

@@ -1,5 +1,5 @@
 <?php
 
-use Miguelenes\FilamentHorizon\Tests\TestCase;
+use Eloquage\FilamentHorizon\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

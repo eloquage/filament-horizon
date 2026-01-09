@@ -1,6 +1,6 @@
 <?php
 
-namespace Miguelenes\FilamentHorizon;
+namespace Eloquage\FilamentHorizon;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
@@ -19,15 +19,15 @@ class FilamentHorizonPlugin implements Plugin
         $panel
             ->discoverClusters(
                 in: __DIR__ . '/Clusters',
-                for: 'Miguelenes\\FilamentHorizon\\Clusters'
+                for: 'Eloquage\\FilamentHorizon\\Clusters'
             )
             ->discoverPages(
                 in: __DIR__ . '/Pages',
-                for: 'Miguelenes\\FilamentHorizon\\Pages'
+                for: 'Eloquage\\FilamentHorizon\\Pages'
             )
             ->discoverWidgets(
                 in: __DIR__ . '/Widgets',
-                for: 'Miguelenes\\FilamentHorizon\\Widgets'
+                for: 'Eloquage\\FilamentHorizon\\Widgets'
             );
     }
 

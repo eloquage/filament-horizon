@@ -115,7 +115,7 @@
                                     @php $payload = is_string($job->payload) ? json_decode($job->payload) : $job->payload; @endphp
                                     <tr>
                                         <td>
-                                            <a href="{{ \Miguelenes\FilamentHorizon\Pages\FailedJobPreview::getUrl(['jobId' => $job->id]) }}" class="fi-horizon-link">
+                                            <a href="{{ \Eloquage\FilamentHorizon\Pages\FailedJobPreview::getUrl(['jobId' => $job->id]) }}" class="fi-horizon-link">
                                                 {{ $this->getJobBaseName($job->name ?? $payload->displayName ?? 'Unknown') }}
                                             </a>
                                         </td>

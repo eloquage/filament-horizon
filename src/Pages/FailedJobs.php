@@ -1,6 +1,6 @@
 <?php
 
-namespace Miguelenes\FilamentHorizon\Pages;
+namespace Eloquage\FilamentHorizon\Pages;
 
 use BackedEnum;
 use Carbon\Carbon;
@@ -8,9 +8,9 @@ use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Support\Enums\Width;
 use Livewire\Attributes\Url;
-use Miguelenes\FilamentHorizon\Clusters\Horizon;
-use Miguelenes\FilamentHorizon\Concerns\AuthorizesHorizonAccess;
-use Miguelenes\FilamentHorizon\Services\HorizonApi;
+use Eloquage\FilamentHorizon\Clusters\Horizon;
+use Eloquage\FilamentHorizon\Concerns\AuthorizesHorizonAccess;
+use Eloquage\FilamentHorizon\Services\HorizonApi;
 
 class FailedJobs extends Page
 {

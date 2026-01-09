@@ -1,6 +1,6 @@
 <?php
 
-namespace Miguelenes\FilamentHorizon\Clusters;
+namespace Eloquage\FilamentHorizon\Clusters;
 
 use BackedEnum;
 use Filament\Clusters\Cluster;

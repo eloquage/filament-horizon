@@ -1,6 +1,6 @@
 <?php
 
-namespace Miguelenes\FilamentHorizon\Tests;
+namespace Eloquage\FilamentHorizon\Tests;
 
 use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
 use BladeUI\Icons\BladeIconsServiceProvider;
@@ -20,8 +20,8 @@ use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
 use Laravel\Horizon\HorizonServiceProvider;
 use Livewire\LivewireServiceProvider;
-use Miguelenes\FilamentHorizon\FilamentHorizonPlugin;
-use Miguelenes\FilamentHorizon\FilamentHorizonServiceProvider;
+use Eloquage\FilamentHorizon\FilamentHorizonPlugin;
+use Eloquage\FilamentHorizon\FilamentHorizonServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
 
@@ -32,7 +32,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Miguelenes\\FilamentHorizon\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
+            fn (string $modelName) => 'Eloquage\\FilamentHorizon\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
 
         // Define the viewHorizon gate for testing (accepts user parameter for proper authorization checks)

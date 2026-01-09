@@ -1,13 +1,13 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/miguelenes/filament-horizon/main/art/banner.png" alt="Filament Horizon Banner" style="width: 100%; max-width: 800px;">
+    <img src="https://raw.githubusercontent.com/eloquage/filament-horizon/main/art/banner.png" alt="Filament Horizon Banner" style="width: 100%; max-width: 800px;">
 </p>
 
 <p align="center">
-    <a href="https://packagist.org/packages/miguelenes/filament-horizon"><img src="https://img.shields.io/packagist/v/miguelenes/filament-horizon.svg?style=flat-square&label=version" alt="Latest Version"></a>
-    <a href="https://packagist.org/packages/miguelenes/filament-horizon"><img src="https://img.shields.io/packagist/php-v/miguelenes/filament-horizon.svg?style=flat-square" alt="PHP Version"></a>
-    <a href="https://packagist.org/packages/miguelenes/filament-horizon"><img src="https://img.shields.io/packagist/dt/miguelenes/filament-horizon.svg?style=flat-square" alt="Total Downloads"></a>
-    <a href="https://github.com/miguelenes/filament-horizon/actions"><img src="https://img.shields.io/github/actions/workflow/status/miguelenes/filament-horizon/run-tests.yml?branch=main&style=flat-square&label=tests" alt="Tests"></a>
-    <a href="https://github.com/miguelenes/filament-horizon/blob/main/LICENSE.md"><img src="https://img.shields.io/packagist/l/miguelenes/filament-horizon.svg?style=flat-square" alt="License"></a>
+    <a href="https://packagist.org/packages/eloquage/filament-horizon"><img src="https://img.shields.io/packagist/v/eloquage/filament-horizon.svg?style=flat-square&label=version" alt="Latest Version"></a>
+    <a href="https://packagist.org/packages/eloquage/filament-horizon"><img src="https://img.shields.io/packagist/php-v/eloquage/filament-horizon.svg?style=flat-square" alt="PHP Version"></a>
+    <a href="https://packagist.org/packages/eloquage/filament-horizon"><img src="https://img.shields.io/packagist/dt/eloquage/filament-horizon.svg?style=flat-square" alt="Total Downloads"></a>
+    <a href="https://github.com/eloquage/filament-horizon/actions"><img src="https://img.shields.io/github/actions/workflow/status/eloquage/filament-horizon/run-tests.yml?branch=main&style=flat-square&label=tests" alt="Tests"></a>
+    <a href="https://github.com/eloquage/filament-horizon/blob/main/LICENSE.md"><img src="https://img.shields.io/packagist/l/eloquage/filament-horizon.svg?style=flat-square" alt="License"></a>
 </p>
 
 # Filament Horizon
@@ -101,13 +101,13 @@ A seamless integration of [Laravel Horizon](https://laravel.com/docs/horizon) in
 Install the package via Composer:
 
 ```bash
-composer require miguelenes/filament-horizon
+composer require eloquage/filament-horizon
 ```
 
 Register the plugin in your Filament panel provider:
 
 ```php
-use Miguelenes\FilamentHorizon\FilamentHorizonPlugin;
+use Eloquage\FilamentHorizon\FilamentHorizonPlugin;
 
 public function panel(Panel $panel): Panel
 {
@@ -236,9 +236,9 @@ Performance analytics:
 The package includes reusable Filament widgets you can use in your own dashboards:
 
 ```php
-use Miguelenes\FilamentHorizon\Widgets\StatsOverview;
-use Miguelenes\FilamentHorizon\Widgets\WorkloadWidget;
-use Miguelenes\FilamentHorizon\Widgets\WorkersWidget;
+use Eloquage\FilamentHorizon\Widgets\StatsOverview;
+use Eloquage\FilamentHorizon\Widgets\WorkloadWidget;
+use Eloquage\FilamentHorizon\Widgets\WorkersWidget;
 ```
 
 ### StatsOverview Widget
@@ -312,16 +312,16 @@ composer test-coverage
 <summary>Click to view screenshots</summary>
 
 ### Dashboard
-![Dashboard](https://raw.githubusercontent.com/miguelenes/filament-horizon/main/art/dashboard.png)
+![Dashboard](https://raw.githubusercontent.com/eloquage/filament-horizon/main/art/dashboard.png)
 
 ### Failed Jobs
-![Failed Jobs](https://raw.githubusercontent.com/miguelenes/filament-horizon/main/art/failed-jobs.png)
+![Failed Jobs](https://raw.githubusercontent.com/eloquage/filament-horizon/main/art/failed-jobs.png)
 
 ### Metrics
-![Metrics](https://raw.githubusercontent.com/miguelenes/filament-horizon/main/art/metrics.png)
+![Metrics](https://raw.githubusercontent.com/eloquage/filament-horizon/main/art/metrics.png)
 
 ### Batches
-![Batches](https://raw.githubusercontent.com/miguelenes/filament-horizon/main/art/batches.png)
+![Batches](https://raw.githubusercontent.com/eloquage/filament-horizon/main/art/batches.png)
 
 </details>
 
@@ -354,7 +354,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## 💖 Credits
 
-- [Miguel Enes](https://github.com/miguelenes) — Creator & Maintainer
+- [Miguel Enes](https://github.com/eloquage) — Creator & Maintainer
 - [Laravel Horizon](https://github.com/laravel/horizon) — The amazing queue dashboard this package builds upon
 - [Filament](https://filamentphp.com) — The beautiful admin panel framework
 - [All Contributors](../../contributors)
@@ -372,9 +372,9 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 </p>
 
 <p align="center">
-    <a href="https://github.com/miguelenes/filament-horizon">⭐ Star us on GitHub</a>
+    <a href="https://github.com/eloquage/filament-horizon">⭐ Star us on GitHub</a>
     &nbsp;·&nbsp;
-    <a href="https://github.com/miguelenes/filament-horizon/issues">🐛 Report Bug</a>
+    <a href="https://github.com/eloquage/filament-horizon/issues">🐛 Report Bug</a>
     &nbsp;·&nbsp;
-    <a href="https://github.com/miguelenes/filament-horizon/issues">💡 Request Feature</a>
+    <a href="https://github.com/eloquage/filament-horizon/issues">💡 Request Feature</a>
 </p>

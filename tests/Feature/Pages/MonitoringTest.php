@@ -5,8 +5,8 @@ use Filament\Support\Enums\Width;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Bus;
 use Livewire\Livewire;
-use Miguelenes\FilamentHorizon\Pages\Monitoring;
-use Miguelenes\FilamentHorizon\Services\HorizonApi;
+use Eloquage\FilamentHorizon\Pages\Monitoring;
+use Eloquage\FilamentHorizon\Services\HorizonApi;
 
 beforeEach(function () {
     $this->api = Mockery::mock(HorizonApi::class);

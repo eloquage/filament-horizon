@@ -1,13 +1,13 @@
 <?php
 
-use Miguelenes\FilamentHorizon\Clusters\Horizon;
-use Miguelenes\FilamentHorizon\FilamentHorizonPlugin;
-use Miguelenes\FilamentHorizon\Pages\Batches;
-use Miguelenes\FilamentHorizon\Pages\Dashboard;
-use Miguelenes\FilamentHorizon\Pages\FailedJobs;
-use Miguelenes\FilamentHorizon\Pages\Metrics;
-use Miguelenes\FilamentHorizon\Pages\Monitoring;
-use Miguelenes\FilamentHorizon\Pages\RecentJobs;
+use Eloquage\FilamentHorizon\Clusters\Horizon;
+use Eloquage\FilamentHorizon\FilamentHorizonPlugin;
+use Eloquage\FilamentHorizon\Pages\Batches;
+use Eloquage\FilamentHorizon\Pages\Dashboard;
+use Eloquage\FilamentHorizon\Pages\FailedJobs;
+use Eloquage\FilamentHorizon\Pages\Metrics;
+use Eloquage\FilamentHorizon\Pages\Monitoring;
+use Eloquage\FilamentHorizon\Pages\RecentJobs;
 
 it('can create the plugin instance', function () {
     $plugin = FilamentHorizonPlugin::make();

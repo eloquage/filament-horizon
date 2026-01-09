@@ -39,7 +39,7 @@
                             @foreach($metrics as $metric)
                                 <tr>
                                     <td>
-                                        <a href="{{ \Miguelenes\FilamentHorizon\Pages\MetricsPreview::getUrl(['type' => $type, 'metricSlug' => $metric['name']]) }}" class="fi-horizon-link">
+                                        <a href="{{ \Eloquage\FilamentHorizon\Pages\MetricsPreview::getUrl(['type' => $type, 'metricSlug' => $metric['name']]) }}" class="fi-horizon-link">
                                             @if($type === 'jobs')
                                                 {{ $this->getJobBaseName($metric['name']) }}
                                             @else

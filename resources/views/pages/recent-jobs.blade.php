@@ -58,7 +58,7 @@
                             @foreach($jobs as $job)
                                 <tr>
                                     <td>
-                                        <a href="{{ \Miguelenes\FilamentHorizon\Pages\JobPreview::getUrl(['jobId' => $job->id]) }}" class="fi-horizon-link">
+                                        <a href="{{ \Eloquage\FilamentHorizon\Pages\JobPreview::getUrl(['jobId' => $job->id]) }}" class="fi-horizon-link">
                                             {{ $this->getJobBaseName($job->name ?? $job->payload->displayName ?? 'Unknown') }}
                                         </a>
                                         <div style="font-size: 0.75rem; color: var(--horizon-text-muted); margin-top: 0.25rem;">

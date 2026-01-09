@@ -1,6 +1,6 @@
 <?php
 
-namespace Miguelenes\FilamentHorizon\Database\Factories;
+namespace Eloquage\FilamentHorizon\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

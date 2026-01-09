@@ -30,7 +30,7 @@
                                 @endphp
                                 <tr>
                                     <td>
-                                        <a href="{{ \Miguelenes\FilamentHorizon\Pages\BatchPreview::getUrl(['batchId' => $batch->id]) }}" class="fi-horizon-link">
+                                        <a href="{{ \Eloquage\FilamentHorizon\Pages\BatchPreview::getUrl(['batchId' => $batch->id]) }}" class="fi-horizon-link">
                                             {{ $batch->name ?? 'Unnamed Batch' }}
                                         </a>
                                         <div style="font-size: 0.75rem; color: var(--horizon-text-muted); margin-top: 0.25rem; font-family: monospace;">

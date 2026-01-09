@@ -1,7 +1,7 @@
 <?php
 
-use Miguelenes\FilamentHorizon\Services\HorizonApi;
-use Miguelenes\FilamentHorizon\Widgets\WorkersWidget;
+use Eloquage\FilamentHorizon\Services\HorizonApi;
+use Eloquage\FilamentHorizon\Widgets\WorkersWidget;
 
 beforeEach(function () {
     $this->api = Mockery::mock(HorizonApi::class);
