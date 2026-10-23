@@ -13,6 +13,7 @@ use Laravel\Horizon\Contracts\TagRepository;
 use Laravel\Horizon\Contracts\WorkloadRepository;
 use Laravel\Horizon\Jobs\MonitorTag;
 use Laravel\Horizon\Jobs\RetryFailedJob;
+use Laravel\Horizon\Jobs\StopMonitoringTag;
 use Laravel\Horizon\WaitTimeCalculator;
 
 class HorizonApi
@@ -296,7 +297,8 @@ class HorizonApi
     public function getMonitoredTags(): Collection
     {
         return collect($this->tags->monitoring())
-            ->map(fn ($tag) => [
+            ->filter(fn ($tag): bool => is_string($tag))
+            ->map(fn (string $tag) => [
                 'tag' => $tag,
                 'count' => $this->tags->count($tag) + $this->tags->count('failed:' . $tag),
             ])
@@ -317,7 +319,7 @@ class HorizonApi
      */
     public function stopMonitoring(string $tag): void
     {
-        dispatch(new \Laravel\Horizon\Jobs\StopMonitoringTag($tag));
+        dispatch(new StopMonitoringTag($tag));
     }
 
     /**

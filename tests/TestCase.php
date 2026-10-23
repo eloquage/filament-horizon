@@ -22,6 +22,7 @@ use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
 use Laravel\Horizon\HorizonServiceProvider;
 use Livewire\Component;
+use Livewire\ComponentHookRegistry;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
@@ -49,7 +50,7 @@ class TestCase extends Orchestra
         // Register our hook to fix null error bag issue
         // This must be done after parent::setUp() but before any components are rendered
         // We register it here to ensure it's registered before LivewireServiceProvider registers SupportValidation
-        \Livewire\ComponentHookRegistry::register(SupportValidationHook::class);
+        ComponentHookRegistry::register(SupportValidationHook::class);
 
         // Also patch getErrorBag() method to ensure it never returns null
         // This is a critical fix - we use a trait-like approach via Component macro
@@ -84,6 +85,7 @@ class TestCase extends Orchestra
 
     public function getEnvironmentSetUp($app)
     {
+        config()->set('app.key', 'base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=');
         config()->set('database.default', 'testing');
         config()->set('horizon.use', 'default');
         config()->set('queue.default', 'redis');
@@ -95,6 +97,7 @@ class TestPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
+            ->default()
             ->id('admin')
             ->path('admin')
             ->plugin(FilamentHorizonPlugin::make());

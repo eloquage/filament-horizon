@@ -1,6 +1,8 @@
 <?php
 
 use Eloquage\FilamentHorizon\Pages\Dashboard;
+use Eloquage\FilamentHorizon\Pages\FailedJobs;
+use Eloquage\FilamentHorizon\Pages\RecentJobs;
 use Illuminate\Support\Facades\Gate;
 
 it('allows access in local environment', function () {
@@ -30,9 +32,9 @@ it('works on pages using the trait', function () {
     config()->set('app.env', 'local');
 
     $pages = [
-        \Eloquage\FilamentHorizon\Pages\Dashboard::class,
-        \Eloquage\FilamentHorizon\Pages\RecentJobs::class,
-        \Eloquage\FilamentHorizon\Pages\FailedJobs::class,
+        Dashboard::class,
+        RecentJobs::class,
+        FailedJobs::class,
     ];
 
     foreach ($pages as $page) {

@@ -11,6 +11,7 @@ use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Panel;
 use Filament\Support\Enums\Width;
+use Illuminate\Support\Collection;
 
 class FailedJobPreview extends Page
 {
@@ -91,7 +92,7 @@ class FailedJobPreview extends Page
             return false;
         }
 
-        if (! $job->retried_by instanceof \Illuminate\Support\Collection) {
+        if (! $job->retried_by instanceof Collection) {
             return false;
         }
 

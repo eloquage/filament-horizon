@@ -10,6 +10,7 @@ use Eloquage\FilamentHorizon\Services\HorizonApi;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Support\Enums\Width;
+use Illuminate\Support\Collection;
 use Livewire\Attributes\Url;
 
 class FailedJobs extends Page
@@ -122,7 +123,7 @@ class FailedJobs extends Page
 
     public function hasCompleted(object $job): bool
     {
-        if (! isset($job->retried_by) || ! $job->retried_by instanceof \Illuminate\Support\Collection) {
+        if (! isset($job->retried_by) || ! $job->retried_by instanceof Collection) {
             return false;
         }
 
@@ -131,7 +132,7 @@ class FailedJobs extends Page
 
     public function wasRetried(object $job): bool
     {
-        return isset($job->retried_by) && $job->retried_by instanceof \Illuminate\Support\Collection && $job->retried_by->isNotEmpty();
+        return isset($job->retried_by) && $job->retried_by instanceof Collection && $job->retried_by->isNotEmpty();
     }
 
     public function getMaxContentWidth(): Width | null | string

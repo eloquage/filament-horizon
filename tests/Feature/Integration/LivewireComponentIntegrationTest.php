@@ -8,6 +8,7 @@ use Eloquage\FilamentHorizon\Pages\Monitoring;
 use Eloquage\FilamentHorizon\Pages\RecentJobs;
 use Eloquage\FilamentHorizon\Services\HorizonApi;
 use Illuminate\Support\Facades\Gate;
+use Livewire\Livewire;
 
 beforeEach(function () {
     $this->api = Mockery::mock(HorizonApi::class);
@@ -35,6 +36,13 @@ it('authorization gates work across all components', function () {
     expect(Batches::canAccess())->toBeFalse();
     expect(Monitoring::canAccess())->toBeFalse();
     expect(Metrics::canAccess())->toBeFalse();
+});
+
+it('renders the monitoring page form', function () {
+    $this->api->shouldReceive('getMonitoredTags')->andReturn(collect());
+
+    Livewire::test(Monitoring::class)
+        ->assertSee('Tag to Monitor');
 });
 
 afterEach(function () {
