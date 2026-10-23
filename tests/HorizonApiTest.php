@@ -1,6 +1,7 @@
 <?php
 
 use Eloquage\FilamentHorizon\Services\HorizonApi;
+use Illuminate\Bus\BatchRepository;
 use Illuminate\Support\Collection;
 use Laravel\Horizon\Contracts\JobRepository;
 use Laravel\Horizon\Contracts\MasterSupervisorRepository;
@@ -16,7 +17,7 @@ it('can be instantiated', function () {
     $mockWorkloadRepository = Mockery::mock(WorkloadRepository::class);
     $mockSupervisorRepository = Mockery::mock(SupervisorRepository::class);
     $mockMasterSupervisorRepository = Mockery::mock(MasterSupervisorRepository::class);
-    $mockBatchRepository = Mockery::mock(\Illuminate\Bus\BatchRepository::class);
+    $mockBatchRepository = Mockery::mock(BatchRepository::class);
 
     $api = new HorizonApi(
         $mockJobRepository,
@@ -38,7 +39,7 @@ it('can get workload', function () {
     $mockWorkloadRepository = Mockery::mock(WorkloadRepository::class);
     $mockSupervisorRepository = Mockery::mock(SupervisorRepository::class);
     $mockMasterSupervisorRepository = Mockery::mock(MasterSupervisorRepository::class);
-    $mockBatchRepository = Mockery::mock(\Illuminate\Bus\BatchRepository::class);
+    $mockBatchRepository = Mockery::mock(BatchRepository::class);
 
     $mockWorkloadRepository->shouldReceive('get')->andReturn([
         ['name' => 'default', 'length' => 10, 'wait' => 5, 'processes' => 3],
@@ -68,7 +69,7 @@ it('can get monitored tags', function () {
     $mockWorkloadRepository = Mockery::mock(WorkloadRepository::class);
     $mockSupervisorRepository = Mockery::mock(SupervisorRepository::class);
     $mockMasterSupervisorRepository = Mockery::mock(MasterSupervisorRepository::class);
-    $mockBatchRepository = Mockery::mock(\Illuminate\Bus\BatchRepository::class);
+    $mockBatchRepository = Mockery::mock(BatchRepository::class);
 
     $mockTagRepository->shouldReceive('monitoring')->andReturn(['user:1', 'order:123']);
     $mockTagRepository->shouldReceive('count')->with('user:1')->andReturn(5);

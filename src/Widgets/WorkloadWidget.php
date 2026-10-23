@@ -5,12 +5,11 @@ namespace Eloquage\FilamentHorizon\Widgets;
 use Carbon\CarbonInterval;
 use Eloquage\FilamentHorizon\Services\HorizonApi;
 use Filament\Widgets\Widget;
+use Illuminate\Contracts\View\View;
 
 class WorkloadWidget extends Widget
 {
     protected static bool $isDiscovered = false;
-
-    protected string $view = 'filament-horizon::widgets.workload';
 
     protected static ?int $sort = 2;
 
@@ -19,6 +18,11 @@ class WorkloadWidget extends Widget
     protected function getPollingInterval(): ?string
     {
         return '5s';
+    }
+
+    public function render(): View
+    {
+        return view('filament-horizon::widgets.workload', $this->getViewData());
     }
 
     protected function getViewData(): array

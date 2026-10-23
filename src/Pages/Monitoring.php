@@ -12,6 +12,7 @@ use Filament\Pages\Page;
 use Filament\Schemas\Schema;
 use Filament\Support\Enums\Width;
 use Illuminate\Support\Collection;
+use LogicException;
 
 class Monitoring extends Page
 {
@@ -29,7 +30,7 @@ class Monitoring extends Page
 
     public function mount(): void
     {
-        $this->form->fill();
+        $this->formSchema()->fill();
     }
 
     public static function getNavigationLabel(): string
@@ -55,6 +56,11 @@ class Monitoring extends Page
             ->statePath('data');
     }
 
+    private function formSchema(): Schema
+    {
+        return $this->getSchema('form') ?? throw new LogicException('The monitoring form schema is not configured.');
+    }
+
     public function getMonitoredTags(): Collection
     {
         $api = app(HorizonApi::class);
@@ -64,7 +70,7 @@ class Monitoring extends Page
 
     public function startMonitoring(): void
     {
-        $data = $this->form->getState();
+        $data = $this->formSchema()->getState();
         $tag = $data['tag'] ?? '';
 
         if (empty($tag)) {
@@ -74,7 +80,7 @@ class Monitoring extends Page
         $api = app(HorizonApi::class);
         $api->startMonitoring($tag);
 
-        $this->form->fill();
+        $this->formSchema()->fill();
 
         Notification::make()
             ->title(__('filament-horizon::horizon.messages.tag_monitoring_started'))

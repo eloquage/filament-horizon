@@ -3,6 +3,7 @@
 namespace Eloquage\FilamentHorizon\Pages;
 
 use BackedEnum;
+use Carbon\Carbon;
 use Eloquage\FilamentHorizon\Clusters\Horizon;
 use Eloquage\FilamentHorizon\Concerns\AuthorizesHorizonAccess;
 use Eloquage\FilamentHorizon\Services\HorizonApi;
@@ -110,7 +111,7 @@ class RecentJobs extends Page
             return '-';
         }
 
-        return \Carbon\Carbon::createFromTimestamp($timestamp)->diffForHumans();
+        return Carbon::createFromTimestamp($timestamp)->diffForHumans();
     }
 
     public function getMaxContentWidth(): Width | null | string

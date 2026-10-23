@@ -10,8 +10,8 @@ Filament Horizon adds Laravel Horizon queue monitoring pages and widgets to a Fi
 
 ## Requirements
 
-- PHP 8.1 or later
-- Laravel 11 or 12
+- PHP 8.2 or later
+- Laravel 12 or 13
 - Filament 4 or 5
 - Laravel Horizon 5
 

@@ -1,5 +1,6 @@
 <?php
 
+use Eloquage\FilamentHorizon\Commands\FilamentHorizonCommand;
 use Eloquage\FilamentHorizon\FilamentHorizonServiceProvider;
 use Eloquage\FilamentHorizon\Services\HorizonApi;
 
@@ -96,7 +97,7 @@ it('returns correct commands', function () {
     $commands = $method->invoke($provider);
 
     expect($commands)->toBeArray();
-    expect($commands)->toContain(\Eloquage\FilamentHorizon\Commands\FilamentHorizonCommand::class);
+    expect($commands)->toContain(FilamentHorizonCommand::class);
 });
 
 it('returns empty icons array', function () {

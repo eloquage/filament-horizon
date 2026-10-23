@@ -5,6 +5,7 @@ namespace Eloquage\FilamentHorizon;
 use Eloquage\FilamentHorizon\Commands\FilamentHorizonCommand;
 use Eloquage\FilamentHorizon\Services\HorizonApi;
 use Eloquage\FilamentHorizon\Testing\TestsFilamentHorizon;
+use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
@@ -104,7 +105,7 @@ class FilamentHorizonServiceProvider extends PackageServiceProvider
     }
 
     /**
-     * @return array<\Filament\Support\Assets\Asset>
+     * @return array<Asset>
      */
     protected function getAssets(): array
     {

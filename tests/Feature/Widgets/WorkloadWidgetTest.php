@@ -2,6 +2,7 @@
 
 use Eloquage\FilamentHorizon\Services\HorizonApi;
 use Eloquage\FilamentHorizon\Widgets\WorkloadWidget;
+use Illuminate\Support\Collection;
 
 beforeEach(function () {
     $this->api = Mockery::mock(HorizonApi::class);
@@ -23,7 +24,7 @@ it('returns workload in view data', function () {
     $viewData = $method->invoke($widget);
 
     expect($viewData)->toBeArray();
-    expect($viewData['workload'])->toBeInstanceOf(\Illuminate\Support\Collection::class);
+    expect($viewData['workload'])->toBeInstanceOf(Collection::class);
     expect($viewData['workload'])->toHaveCount(2);
 });
 
