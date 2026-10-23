@@ -65,7 +65,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.compatibility.laravel }}" "filament/filament:${{ matrix.compatibility.filament }}" "orchestra/testbench:${{ matrix.compatibility.testbench }}" "nesbot/carbon:${{ matrix.carbon }}" --no-interaction --no-update
+          composer require "laravel/framework:${{ matrix.compatibility.laravel }}" "filament/filament:${{ matrix.compatibility.filament }}" "orchestra/testbench:${{ matrix.compatibility.testbench }}" "nesbot/carbon:${{ matrix.compatibility.carbon }}" --no-interaction --no-update
           composer update --prefer-stable --prefer-dist --no-interaction
 
       - name: Audit dependencies
