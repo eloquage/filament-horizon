@@ -1,6 +1,6 @@
 {
     "name": "eloquage/filament-horizon",
-    "description": "This is my package filament-horizon",
+    "description": "Filament dashboard pages and widgets for monitoring Laravel Horizon queues.",
     "keywords": [
         "laravel",
         "filament",
@@ -29,7 +29,7 @@
         "laravel/pint": "^1",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8",
-        "orchestra/testbench": "^10",
+        "orchestra/testbench": "^9 || ^10",
         "pestphp/pest": "^4",
         "pestphp/pest-plugin-laravel": "^4"
     },
