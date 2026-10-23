@@ -31,8 +31,8 @@
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8",
         "orchestra/testbench": "^9 || ^10 || ^11",
-        "pestphp/pest": "^4",
-        "pestphp/pest-plugin-laravel": "^4",
+        "pestphp/pest": "^3 || ^4",
+        "pestphp/pest-plugin-laravel": "^3 || ^4",
         "phpstan/extension-installer": "^1.4"
     },
     "autoload": {
