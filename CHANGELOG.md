@@ -2,6 +2,10 @@
 
 All notable changes to `filament-horizon` will be documented in this file.
 
+## v1.0.2 - 2026-11-03
+
+- Update the frontend dependency lockfile with the current compatible dependency updates.
+
 ## 1.0.1 - 2026-10-23
 
 - Require PHP 8.2+ and document Laravel 12 and 13 support.
